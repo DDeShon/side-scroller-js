@@ -28,6 +28,7 @@ class Player {
   update() {
     this.draw();
     this.position.y += this.velocity.y;
+    this.position.x += this.velocity.x;
     if (this.position.y + this.height + this.velocity.y <= canvas.height)
       this.velocity.y += gravity;
     else this.velocity.y = 0;
@@ -53,14 +54,37 @@ addEventListener("keydown", ({ keyCode }) => {
 
     case 68:
       console.log("right");
+      player.velocity.x += 5;
       break;
 
     case 87:
       console.log("up");
+      player.velocity.y -= 10;
       break;
 
     case 83:
       console.log("down");
+      break;
+  }
+});
+
+addEventListener("keyup", ({ keyCode }) => {
+  //   console.log(keyCode);
+  switch (keyCode) {
+    case 65:
+      // console.log("left");
+      break;
+
+    case 68:
+      // console.log("right");
+      break;
+
+    case 87:
+      // console.log("up");
+      break;
+
+    case 83:
+      // console.log("down");
       break;
   }
 });
