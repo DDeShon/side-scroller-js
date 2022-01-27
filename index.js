@@ -36,7 +36,26 @@ class Player {
   }
 }
 
+class Ground {
+  constructor() {
+    this.position = {
+      x: 200,
+      y: 600,
+    };
+
+    this.width = 200;
+    this.height = 20;
+  }
+
+  draw() {
+    context.fillStyle = "black";
+    context.fillRect(this.position.x, this.position.y, this.width, this.height);
+  }
+}
+
 const player = new Player();
+const ground = new Ground();
+
 const keys = {
   right: {
     pressed: false,
@@ -50,12 +69,23 @@ function animate() {
   requestAnimationFrame(animate);
   context.clearRect(0, 0, canvas.width, canvas.height);
   player.update();
+  ground.draw();
 
   if (keys.right.pressed) {
     player.velocity.x = 5;
   } else if (keys.left.pressed) {
     player.velocity.x = -5;
   } else player.velocity.x = 0;
+
+  if (
+    player.position.y + player.height <= ground.position.y &&
+    player.position.y + player.height + player.velocity.y >=
+      ground.position.y &&
+    player.position.x + player.width >= ground.position.x &&
+    player.position.x <= ground.position.x + ground.width
+  ) {
+    player.velocity.y = 0;
+  }
 }
 animate();
 
