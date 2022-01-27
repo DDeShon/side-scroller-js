@@ -54,7 +54,7 @@ class Ground {
 }
 
 const player = new Player();
-const ground = new Ground();
+const grounds = [new Ground()];
 
 const keys = {
   right: {
@@ -68,24 +68,43 @@ const keys = {
 function animate() {
   requestAnimationFrame(animate);
   context.clearRect(0, 0, canvas.width, canvas.height);
-  player.update();
-  ground.draw();
 
-  if (keys.right.pressed) {
+  grounds.forEach((ground) => {
+    ground.draw();
+  });
+
+  if (keys.right.pressed && player.position.x < 400) {
     player.velocity.x = 5;
-  } else if (keys.left.pressed) {
+  } else if (keys.left.pressed && player.position.x > 100) {
     player.velocity.x = -5;
-  } else player.velocity.x = 0;
+  } else {
+    player.velocity.x = 0;
 
-  if (
-    player.position.y + player.height <= ground.position.y &&
-    player.position.y + player.height + player.velocity.y >=
-      ground.position.y &&
-    player.position.x + player.width >= ground.position.x &&
-    player.position.x <= ground.position.x + ground.width
-  ) {
-    player.velocity.y = 0;
+    if (keys.right.pressed) {
+      grounds.forEach((ground) => {
+        ground.position.x -= 5;
+      });
+    } else if (keys.left.pressed) {
+      grounds.forEach((ground) => {
+        ground.position.x += 5;
+      });
+    }
   }
+
+  // ground collision detection
+  grounds.forEach((ground) => {
+    if (
+      player.position.y + player.height <= ground.position.y &&
+      player.position.y + player.height + player.velocity.y >=
+        ground.position.y &&
+      player.position.x + player.width >= ground.position.x &&
+      player.position.x <= ground.position.x + ground.width
+    ) {
+      player.velocity.y = 0;
+    }
+  });
+
+  player.update();
 }
 animate();
 
