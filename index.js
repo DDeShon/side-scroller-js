@@ -37,10 +37,10 @@ class Player {
 }
 
 class Ground {
-  constructor() {
+  constructor({ x, y }) {
     this.position = {
-      x: 200,
-      y: 600,
+      x,
+      y,
     };
 
     this.width = 200;
@@ -54,7 +54,10 @@ class Ground {
 }
 
 const player = new Player();
-const grounds = [new Ground()];
+const grounds = [
+  new Ground({ x: 0, y: 1000 }),
+  new Ground({ x: 400, y: 1000 }),
+];
 
 const keys = {
   right: {
@@ -80,15 +83,13 @@ function animate() {
   } else {
     player.velocity.x = 0;
 
-    if (keys.right.pressed) {
-      grounds.forEach((ground) => {
+    grounds.forEach((ground) => {
+      if (keys.right.pressed) {
         ground.position.x -= 5;
-      });
-    } else if (keys.left.pressed) {
-      grounds.forEach((ground) => {
+      } else if (keys.left.pressed) {
         ground.position.x += 5;
-      });
-    }
+      }
+    });
   }
 
   // ground collision detection
