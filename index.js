@@ -1,3 +1,4 @@
+import ground from "./img/ground.png";
 const canvas = document.querySelector("canvas");
 
 const context = canvas.getContext("2d");
@@ -57,6 +58,7 @@ const player = new Player();
 const grounds = [
   new Ground({ x: 0, y: 1000 }),
   new Ground({ x: 400, y: 1000 }),
+  new Ground({ x: 800, y: 1000 }),
 ];
 
 const keys = {
