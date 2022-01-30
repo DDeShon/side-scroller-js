@@ -1,6 +1,6 @@
-// import ground from "./img/ground.png";
+import ground from "./img/ground.png";
 
-// console.log(ground);
+console.log(ground);
 const canvas = document.querySelector("canvas");
 
 const context = canvas.getContext("2d");
@@ -9,6 +9,9 @@ canvas.width = innerWidth;
 canvas.height = innerHeight;
 
 const gravity = 0.5;
+
+const image = new Image();
+image.src = ground;
 class Player {
   constructor() {
     this.position = {
@@ -40,19 +43,23 @@ class Player {
 }
 
 class Ground {
-  constructor({ x, y }) {
+  constructor({ x, y, image }) {
     this.position = {
       x,
       y,
+      image: "",
     };
 
     this.width = 200;
     this.height = 20;
+
+    this.image = image;
   }
 
   draw() {
-    context.fillStyle = "black";
-    context.fillRect(this.position.x, this.position.y, this.width, this.height);
+    // context.fillStyle = "black";
+    // context.fillRect(this.position.x, this.position.y, this.width, this.height);
+    context.drawImage(this.image, this.position.x, this.position.y);
   }
 }
 
