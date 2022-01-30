@@ -1,4 +1,4 @@
-// import ground from "./img/ground.png";
+// import ground from "/img/ground.png";
 
 // console.log(ground);
 const canvas = document.querySelector("canvas");
@@ -12,7 +12,6 @@ const gravity = 0.5;
 
 const image = new Image();
 image.src = "http://127.0.0.1:5500/img/ground.png";
-console.log(image);
 class Player {
   constructor() {
     this.position = {
