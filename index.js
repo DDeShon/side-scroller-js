@@ -1,6 +1,6 @@
-import ground from "./img/ground.png";
+// import ground from "./img/ground.png";
 
-console.log(ground);
+// console.log(ground);
 const canvas = document.querySelector("canvas");
 
 const context = canvas.getContext("2d");
