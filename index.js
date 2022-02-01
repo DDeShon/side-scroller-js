@@ -57,8 +57,6 @@ class Ground {
   }
 
   draw() {
-    // context.fillStyle = "black";
-    // context.fillRect(this.position.x, this.position.y, this.width, this.height);
     context.drawImage(this.image, this.position.x, this.position.y);
   }
 }
@@ -121,7 +119,6 @@ function animate() {
 animate();
 
 addEventListener("keydown", ({ keyCode }) => {
-  //   console.log(keyCode);
   switch (keyCode) {
     case 65:
       console.log("left");
@@ -145,24 +142,19 @@ addEventListener("keydown", ({ keyCode }) => {
 });
 
 addEventListener("keyup", ({ keyCode }) => {
-  //   console.log(keyCode);
   switch (keyCode) {
     case 65:
-      // console.log("left");
       keys.left.pressed = false;
       break;
 
     case 68:
-      // console.log("right");
       keys.right.pressed = false;
       break;
 
     case 87:
-      // console.log("up");
       break;
 
     case 83:
-      // console.log("down");
       break;
   }
 });
