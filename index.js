@@ -50,8 +50,8 @@ class Ground {
       image,
     };
 
-    this.width = 200;
-    this.height = 20;
+    this.width = image.width;
+    this.height = image.height;
 
     this.image = image;
   }
