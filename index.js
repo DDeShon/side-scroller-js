@@ -1,6 +1,3 @@
-// import ground from "/img/ground.png";
-
-// console.log(ground);
 const canvas = document.querySelector("canvas");
 
 const context = canvas.getContext("2d");
@@ -11,7 +8,7 @@ canvas.height = innerHeight;
 const gravity = 0.5;
 
 const image = new Image();
-image.src = "http://127.0.0.1:5500/img/ground.png";
+image.src = "./img/ground.png";
 class Player {
   constructor() {
     this.position = {
@@ -50,22 +47,23 @@ class Ground {
       image,
     };
 
-    this.width = image.width;
-    this.height = image.height;
-
     this.image = image;
+    this.width = 599;
+    this.height = image.height;
   }
 
   draw() {
+    // context.fillStyle = "black";
+    // context.fillRect(this.position.x, this.position.y, this.width, this.height);
     context.drawImage(this.image, this.position.x, this.position.y);
   }
 }
 
 const player = new Player();
 const grounds = [
-  new Ground({ x: 0, y: 1000, image }),
-  new Ground({ x: 400, y: 1000, image }),
-  new Ground({ x: 800, y: 1000, image }),
+  new Ground({ x: 0, y: 900, image }),
+  new Ground({ x: 800, y: 900, image }),
+  new Ground({ x: 1600, y: 900, image }),
 ];
 
 const keys = {
@@ -119,29 +117,28 @@ function animate() {
 animate();
 
 addEventListener("keydown", ({ keyCode }) => {
+  //   console.log(keyCode);
   switch (keyCode) {
     case 65:
-      console.log("left");
       keys.left.pressed = true;
       break;
 
     case 68:
-      console.log("right");
       keys.right.pressed = true;
       break;
 
     case 87:
-      console.log("up");
       player.velocity.y = -10;
       break;
 
     case 83:
-      console.log("down");
+      player.velocity.y = 10;
       break;
   }
 });
 
 addEventListener("keyup", ({ keyCode }) => {
+  //   console.log(keyCode);
   switch (keyCode) {
     case 65:
       keys.left.pressed = false;
