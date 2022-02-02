@@ -53,8 +53,6 @@ class Ground {
   }
 
   draw() {
-    // context.fillStyle = "black";
-    // context.fillRect(this.position.x, this.position.y, this.width, this.height);
     context.drawImage(this.image, this.position.x, this.position.y);
   }
 }
