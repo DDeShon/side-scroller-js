@@ -97,7 +97,7 @@ function animate() {
     });
   }
 
-  // ground collision detection
+  // setting up ground collision detection
   grounds.forEach((ground) => {
     if (
       player.position.y + player.height <= ground.position.y &&
@@ -115,7 +115,6 @@ function animate() {
 animate();
 
 addEventListener("keydown", ({ keyCode }) => {
-  //   console.log(keyCode);
   switch (keyCode) {
     case 65:
       keys.left.pressed = true;
@@ -136,7 +135,6 @@ addEventListener("keydown", ({ keyCode }) => {
 });
 
 addEventListener("keyup", ({ keyCode }) => {
-  //   console.log(keyCode);
   switch (keyCode) {
     case 65:
       keys.left.pressed = false;
