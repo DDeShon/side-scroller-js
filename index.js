@@ -48,7 +48,7 @@ class Ground {
     };
 
     this.image = image;
-    this.width = 599;
+    this.width = 600;
     this.height = image.height;
   }
 
