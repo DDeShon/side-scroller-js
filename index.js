@@ -5,7 +5,7 @@ const context = canvas.getContext("2d");
 canvas.width = innerWidth;
 canvas.height = innerHeight;
 
-const gravity = 0.5;
+const gravity = 0.7;
 
 const image = new Image();
 image.src = "./img/ground.png";
@@ -48,7 +48,7 @@ class Ground {
     };
 
     this.image = image;
-    this.width = 599;
+    this.width = 600;
     this.height = image.height;
   }
 
