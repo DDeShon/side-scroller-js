@@ -59,9 +59,9 @@ class Ground {
 
 const player = new Player();
 const grounds = [
-  new Ground({ x: 0, y: 900, image }),
-  new Ground({ x: 800, y: 900, image }),
-  new Ground({ x: 1600, y: 900, image }),
+  new Ground({ x: 0, y: 800, image }),
+  new Ground({ x: 800, y: 800, image }),
+  new Ground({ x: 1600, y: 800, image }),
 ];
 
 const keys = {
